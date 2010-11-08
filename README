@@ -1,1 +1,16 @@
-Nothing yet to see
+
+# Usage
+
+    val = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
+    var l = requre('link').parse(val);
+
+    // Get href
+    sys.log('Link href: ' + link.href);
+
+    // Get rel types
+    for(v in l[name]) {
+      sys.log(l[name][v]);
+    }
+
+    // Check 
+    sys.log(l.hasRelationType('alternate'));

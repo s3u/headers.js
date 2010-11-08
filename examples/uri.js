@@ -1,6 +1,32 @@
-var uri = require('url'),
-    sys = require('sys');
+var sys = require('sys'),
+    link = require('link');
 
-var u = uri.parse('http:  //foo.com');
-sys.log(u.protocol);
-sys.log(u.hostname);
+var val = "<http://foo.com>;rel='href';title='hello'";
+var l = link.parse(val);
+for(name in l) {
+  sys.log(name + " ---> " + l[name]);
+}
+
+sys.log('------------');
+val = "<http://foo.com>;rel='http://some.rel.com';title='hello';type='application/xml'";
+l = link.parse(val);
+for(name in l) {
+  sys.log(name + " ---> " + l[name]);
+}
+
+sys.log('------------');
+val = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
+l = link.parse(val);
+for(name in l) {
+  if(name == 'rel') {
+    for(v in l[name]) {
+      sys.log(name + " ---> " + l[name][v]);      
+    }
+  }
+  else {
+    sys.log(name + " ---> " + l[name]);
+  }
+}
+sys.log(l.hasRelationType('alternate'));
+
+
