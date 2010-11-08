@@ -28,5 +28,3 @@ for(name in l) {
   }
 }
 sys.log(l.hasRelationType('alternate'));
-
-
