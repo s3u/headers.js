@@ -54,3 +54,11 @@ RFC 5988 specifies this header. Here is the format.
     sys.log(l.hasRelationType('alternate'));
 
 ### Formatting
+
+    sys.log(link.format({
+      href : 'http://www.example.org',
+      rel : ['related'],
+      title : 'Hello World',
+      type : 'text/html'
+    }));
+    

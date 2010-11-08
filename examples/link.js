@@ -28,3 +28,11 @@ for(name in l) {
   }
 }
 sys.log(l.hasRelationType('alternate'));
+
+sys.log('----- format -----');
+sys.log(link.format({
+  href : 'http://www.example.org',
+  rel : ['related'],
+  title : 'Hello World',
+  type : 'text/html'
+}));
