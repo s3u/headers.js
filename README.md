@@ -1,6 +1,8 @@
 
 # Headers
 
+Contains HTTP header parsing modules.
+
 ## Link
 
 RFC 5988 specifies this header. Here is the format.
