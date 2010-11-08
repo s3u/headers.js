@@ -36,3 +36,7 @@ sys.log(link.format({
   title : 'Hello World',
   type : 'text/html'
 }));
+
+sys.log(link.format({
+  rel : 'related'
+}))
