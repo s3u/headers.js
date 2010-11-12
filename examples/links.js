@@ -4,7 +4,7 @@ var sys = require('sys'),
 var val = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
 l = link.parse(val);
 console.log(sys.inspect(l));
-sys.log(l.hasRelationType('alternate'));
+sys.log(link.hasRelationType(l, 'alternate'));
 
 sys.log(link.format({
   href : 'http://www.example.org',
