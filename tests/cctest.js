@@ -108,3 +108,33 @@ assert.equal(cc.format({
   'bar' : '\'bara\''
 }), 'public,max-age=10,bar=\'bara\'');
 
+// LWS
+val = "public, max-age=10, bar='bara'";
+c = cc.parse(val);
+assert.deepEqual(c, {
+  'public' : true,
+  'max-age' : '10',
+  'bar' : "'bara'"
+});
+val = "public ,max-age=10 , bar='bar baz'";
+c = cc.parse(val);
+assert.deepEqual(c, {
+  'public' : true,
+  'max-age' : '10',
+  'bar' : "'bar baz'"
+});
+val = "public ,max-age=10 , bar='bara'";
+c = cc.parse(val);
+assert.deepEqual(c, {
+  'public' : true,
+  'max-age' : '10',
+  'bar' : "'bara'"
+});
+val = "public ,     max-age= 10   ,   bar  =  'bar baz'";
+c = cc.parse(val);
+assert.deepEqual(c, {
+  'public' : true,
+  'max-age' : '10',
+  'bar' : "'bar baz'"
+})
+

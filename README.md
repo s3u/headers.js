@@ -39,3 +39,15 @@ Mechanism](http://tools.ietf.org/html/draft-ietf-httpstate-cookie-17).
 
     c = setCookie.parse('foo=bar;Domain=www.subbu.org;Secure');
     sys.log(sys.inspect(c));
+
+## TODO
+
+* White space in #rule
+* Implied linear white space (LWS)
+* Accept
+* Accept-Charset
+* Accept-Encoding
+* Accept-Language
+* Accept-Range
+* Allow
+* 
