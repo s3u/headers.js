@@ -138,3 +138,10 @@ assert.deepEqual(c, {
   'bar' : "'bar baz'"
 })
 
+val = "public,, ,max-age= 10   ,   bar  =  'bar baz'";
+c = cc.parse(val);
+assert.deepEqual(c, {
+  'public' : true,
+  'max-age' : '10',
+  'bar' : "'bar baz'"
+})
