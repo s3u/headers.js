@@ -1,9 +1,9 @@
 var sys = require('sys'),
-    link = require('link'),
+    header = require('header'),
     assert = require('assert');
 
 var val = "<http://foo.com>;rel='href';title='hello'";
-var l = link.parse(val);
+var l = header.parse('Link', val);
 assert.deepEqual(l, {
   href : 'http://foo.com',
   rel : ['href'],
@@ -11,7 +11,7 @@ assert.deepEqual(l, {
 });
 
 val = "<http://foo.com>;rel='http://some.rel.com';title='hello';type='application/xml'";
-l = link.parse(val);
+l = header.parse('Link', val);
 assert.deepEqual(l, {
   href : 'http://foo.com',
   rel : ['http://some.rel.com'],
@@ -20,16 +20,15 @@ assert.deepEqual(l, {
 });
 
 val = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
-l = link.parse(val);
+l = header.parse('Link', val);
 assert.deepEqual(l, {
   href : 'http://foo.com',
   rel : ['http://some.rel.com', 'alternate'],
   title : 'hello',
   type : 'application/xml'
 });
-assert.ok(link.hasRelationType(l, 'alternate'));
 
-var str = link.format({
+var str = header.format('Link', {
   href : 'http://www.example.org',
   rel : ['related'],
   title : 'Hello World',
@@ -37,12 +36,12 @@ var str = link.format({
 });
 assert.equal(str, "<http://www.example.org>;rel=related;title='Hello World';type='text/html'");
 
-str= link.format({
+str= header.format('Link', {
   rel : ['related']
 });
 assert.equal(str, "<>;rel=related");
 
-str = link.format({
+str = header.format('Link', {
   rel : ['related'],
   type: 'application/xml'
 });

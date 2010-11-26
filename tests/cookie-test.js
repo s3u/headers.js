@@ -1,13 +1,13 @@
 var sys = require('sys'),
-    cookie = require('cookie'),
+    header = require('header'),
     assert = require('assert');
 
-c = cookie.parse('foo=bar');
+c = header.parse('Cookie', 'foo=bar');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar'
 });
-assert.equal(cookie.format({
+assert.equal(header.format('Cookie', {
   name : 'foo',
   value : 'bar'
 }), 'foo=bar');
