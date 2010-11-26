@@ -1,21 +1,21 @@
 
 # Headers
 
-Bunch of code to parse and format the following headers:
+This is a commonjs compatible Javascript module for parsing and format the following HTTP headers:
 
-* `Accept`
-* `Accept-Language`
-* `Accept-Charset`
-* `Accept-Encoding`
-* `Cookie`
-* `Set-Cookie`
-* `Cache-Control`
-* `Link`
+* `Accept` (per RFC 2616)
+* `Accept-Language` (per RFC 2616)
+* `Accept-Charset` (per RFC 2616)
+* `Accept-Encoding` (per RFC 2616)
+* `Cookie` (per http://tools.ietf.org/html/draft-ietf-httpstate-cookie-18)
+* `Set-Cookie` (per http://tools.ietf.org/html/draft-ietf-httpstate-cookie-18)
+* `Cache-Control` (per RFC 2616)
+* `Link` (per RFC 5988)
 
 Parsing and formatting is implemented by a `header` module which has two functions `parse`, and `format`.
-Each of these methods accept two arguments - the name of the header, and either a string or an object. The
-structure of the object is specific to each header, but is easily guessable. See the `tests` directory for
-examples.
+Each of these methods accept two arguments - the name of the header, and either a string (for parsing) or
+an object (for formatting. The structure of the object is specific to each header, but is easily
+guessable. See the `tests` directory for examples.
 
 # Example
 
