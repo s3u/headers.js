@@ -1,53 +1,37 @@
 
 # Headers
 
-Contains HTTP header parsing modules.
+Bunch of code to parse and format the following headers:
 
-## Link (RFC 5988)
+* `Accept`
+* `Accept-Language`
+* `Accept-Charset`
+* `Accept-Encoding`
+* `Cookie`
+* `Set-Cookie`
+* `Cache-Control`
+* `Link`
 
-### Parsing
+Parsing and formatting is implemented by a `header` module which has two functions `parse`, and `format`.
+Each of these methods accept two arguments - the name of the header, and either a string or an object. The
+structure of the object is specific to each header, but is easily guessable. See the `tests` directory for
+examples.
 
-    var val = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
-    l = link.parse(val);
+# Example
+
+Here is an example to parse a `Link` header.
+
+    var header = require('header');
+    var str = "<http://foo.com>;rel='http://some.rel.com alternate';title='hello';type='application/xml'";
+    l = header.parse('Link', val);
     console.log(sys.inspect(l));
 
-    sys.log(link.hasRelationType(l, 'alternate'));
+Formatting follows the same style.
 
-### Formatting
-
-    sys.log(link.format({
+    var header = require('header');
+    sys.log(header.format('Link', {
       href : 'http://www.example.org',
       rel : ['related'],
       title : 'Hello World',
       type : 'text/html'
     }));
-
-## Cache-Control (RFC 2616)
-
-    val = 'public,max-age=10,max-stale=10';
-    c = cc.parse(val);
-    sys.log(sys.inspect(c));
-
-## Set-Cookie
-
-Based
-on
-[HTTP
-State
-Management
-Mechanism](http://tools.ietf.org/html/draft-ietf-httpstate-cookie-17).
-
-    c = setCookie.parse('foo=bar;Domain=www.subbu.org;Secure');
-    sys.log(sys.inspect(c));
-
-## TODO
-
-* White space in #rule
-* Implied linear white space (LWS)
-* Accept
-* Accept-Charset
-* Accept-Encoding
-* Accept-Language
-* Accept-Range
-* Allow
-* 
