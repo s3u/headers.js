@@ -1,21 +1,21 @@
 var sys = require('sys'),
-    setCookie = require('set-cookie'),
+    header = require('header'),
     assert = require('assert');
 
-c = setCookie.parse('foo=bar');
+c = header.parse('Set-Cookie', 'foo=bar');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar'
 });
 
-c = setCookie.parse('foo=bar;Secure');
+c = header.parse('Set-Cookie', 'foo=bar;Secure');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar',
   'Secure' : true
 });
 
-c = setCookie.parse('foo=bar;Domain=www.subbu.org;Secure');
+c = header.parse('Set-Cookie', 'foo=bar;Domain=www.subbu.org;Secure');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar',
@@ -23,7 +23,7 @@ assert.deepEqual(c, {
   'Secure' : true
 });
 
-c = setCookie.parse('foo=bar;Domain=www.subbu.org;Secure;Path=/foo');
+c = header.parse('Set-Cookie', 'foo=bar;Domain=www.subbu.org;Secure;Path=/foo');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar',
@@ -32,14 +32,14 @@ assert.deepEqual(c, {
   'Path' : '/foo'
 });
 
-c = setCookie.parse('foo=bar;Expires=Wed, 15 Nov 1995 06:25:24 GMT');
+c = header.parse('Set-Cookie', 'foo=bar;Expires=Wed, 15 Nov 1995 06:25:24 GMT');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar',
   'Expires' : 'Wed, 15 Nov 1995 06:25:24 GMT'
 });
 
-c = setCookie.parse('foo=bar;Expires=Wed, 15 Nov 1995 06:25:24 GMT;HttpOnly');
+c = header.parse('Set-Cookie', 'foo=bar;Expires=Wed, 15 Nov 1995 06:25:24 GMT;HttpOnly');
 assert.deepEqual(c, {
   name : 'foo',
   value : 'bar',

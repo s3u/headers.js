@@ -101,7 +101,7 @@ assert.deepEqual(c, {
   'public' : true,
   'max-age' : '10',
   'bar' : "'bara'"
-})
+});
 assert.equal(header.format('Cache-Control', {
   'public' : true,
   'max-age' : '10',
