@@ -1,5 +1,5 @@
 var sys = require('sys'),
-    header = require('header'),
+    header = require('headers'),
     assert = require('assert');
 
 var str = 'da, en-gb;q=0.8, en;q=0.7';

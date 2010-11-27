@@ -1,5 +1,5 @@
 var sys = require('sys'),
-    header = require('header'),
+    header = require('headers'),
     assert = require('assert');
 
 var str = 'iso-8859-5, unicode-1-1;q=0.8';

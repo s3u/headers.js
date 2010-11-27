@@ -1,5 +1,5 @@
 var sys = require('sys'),
-    header = require('header'),
+    header = require('headers'),
     assert = require('assert');
 
 var val = "public,, ,max-age= 10   ,   bar  =  'bar baz'";

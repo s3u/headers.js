@@ -35,3 +35,7 @@ Formatting follows the same style.
       title : 'Hello World',
       type : 'text/html'
     }));
+
+# Installing
+
+    npm install headers
