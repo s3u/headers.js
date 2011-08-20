@@ -3,6 +3,7 @@
 
 This is a commonjs compatible Javascript module for parsing and format the following HTTP headers:
 
+* `Content-Type` (per RFC 2616)
 * `Accept` (per RFC 2616)
 * `Accept-Language` (per RFC 2616)
 * `Accept-Charset` (per RFC 2616)
