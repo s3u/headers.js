@@ -1,9 +1,12 @@
 {
-  "name": "headers",
-  "version": "0.9.4",
-  "directories" : {
-    "lib" : "./lib"
-  },
-  "author": "Subbu Allamaraju <subbu@subbu.org> (http://www.subbu.org)",
-  "main" : "./lib/headers"
+    "name": "headers",
+    "version": "0.9.5",
+    "directories" : {
+        "lib" : "./lib"
+    },
+    "devDependencies": {
+        "nodeunit": ""
+    },
+    "author": "Subbu Allamaraju <subbu@subbu.org> (http://www.subbu.org)",
+    "main" : "./lib/headers"
 }
