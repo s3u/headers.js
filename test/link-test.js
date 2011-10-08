@@ -62,5 +62,15 @@ module.exports = {
         });
         test.equal(str, "<>;rel=related;type='application/xml'");
         test.done();
+    },
+    'case-insensitiveness' : function(test) {
+        var str = header.format('linK', {
+          href : 'http://www.example.org',
+          rel : ['related'],
+          title : 'Hello World',
+          type : 'text/html'
+        });
+        test.equal(str, "<http://www.example.org>;rel=related;title='Hello World';type='text/html'");
+        test.done();
     }
 }
