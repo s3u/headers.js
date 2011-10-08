@@ -288,5 +288,30 @@ module.exports = {
         _str = header.format('Accept', obj);
         test.equal(_str, 'text/*;q=0.3,text/html;q=0.7,text/html;level=1,text/html;level=2;q=0.4,*/*;q=0.5');
         test.done();
-    }
+    },
+    'case-insensitiveness': function(test) {
+            var str, h, obj, _str;
+            str = 'text/html;q=1.0;foo=bar,text/xml';
+            h = header.parse('accePt', str);
+            obj = [
+                {
+                    'params' : {
+                        'q' : '1.0',
+                        'foo' : 'bar'
+                    },
+                    'type' : 'text',
+                    'subtype' : 'html'
+                },
+                {
+                    'params' : {},
+                    'type' : 'text',
+                    'subtype' : 'xml'
+                }
+            ];
+            test.deepEqual(h, obj);
+            _str = header.format('accept', obj);
+            test.equal(_str, 'text/html;q=1.0;foo=bar,text/xml');
+            test.done();
+        }
+
 }

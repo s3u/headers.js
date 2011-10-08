@@ -181,5 +181,21 @@ module.exports = {
             'bar' : "'bar baz'"
         })
         test.done();
+    },
+    'case-insensitiveness': function(test) {
+        var val, c;
+        val = 'public,max-age=10,foo=30';
+        c = header.parse('cache-contRol', val);
+        test.deepEqual(c, {
+            'public' : true,
+            'max-age' : '10',
+            'foo' : '30'
+        });
+        test.equal(header.format('cacHe-control', {
+            'public' : true,
+            'max-age' : '10',
+            'foo' : '30'
+        }), 'public,max-age=10,foo=30');
+        test.done();
     }
 }

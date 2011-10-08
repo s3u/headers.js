@@ -57,5 +57,13 @@ module.exports = {
           'HttpOnly' : true
         });
         test.done();
+    },
+    'case-insensitiveness': function(test) {
+        var c = header.parse('set-cookie', 'foo=bar');
+        test.deepEqual(c, {
+          name : 'foo',
+          value : 'bar'
+        });
+        test.done();
     }
 }
